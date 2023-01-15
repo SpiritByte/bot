@@ -30,10 +30,9 @@ const discord_api = axios.create({
 });
 
 
-lib.discord.users['@0.2.1'].me.status.update({
-  activity_name: ACTIVITY_NAME,
-  activity_type: ACTIVITY_TYPE,
-  status: STATUS
+client.user.setActivity("with depression", {
+  type: "STREAMING",
+  url: "https://www.twitch.tv/monstercat"
 });
 
 
