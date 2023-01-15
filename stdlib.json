@@ -1,7 +1,0 @@
-{
-  "name": "SpiritByte/starter-discord-bot",
-  "timeout": 10000,
-  "connector": false,
-  "events": {
-  }
-}
