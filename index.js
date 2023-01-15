@@ -5,9 +5,6 @@ const APPLICATION_ID = process.env.APPLICATION_ID
 const TOKEN = process.env.TOKEN 
 const PUBLIC_KEY = process.env.PUBLIC_KEY || 'not set'
 const GUILD_ID = process.env.GUILD_ID 
-const STATUS = process.env.STATUS
-const ACTIVITY_TYPE = process.env.ACTIVITY_TYPE
-const ACTIVITY_NAME = process.env.ACTIVITY_NAME
 
 
 const axios = require('axios')
