@@ -26,15 +26,6 @@ const discord_api = axios.create({
   }
 });
 
-module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('ping')
-		.setDescription('Replies with Pong!'),
-	async execute(interaction) {
-		await interaction.reply('Pong!');
-	},
-};
-
 app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
   const interaction = req.body;
 
