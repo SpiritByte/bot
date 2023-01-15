@@ -29,12 +29,14 @@ const discord_api = axios.create({
   }
 });
 
-
-client.user.setActivity("with depression", {
-  type: "STREAMING",
-  url: "https://www.twitch.tv/monstercat"
-});
-
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('ping')
+		.setDescription('Replies with Pong!'),
+	async execute(interaction) {
+		await interaction.reply('Pong!');
+	},
+};
 
 app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
   const interaction = req.body;
