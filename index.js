@@ -40,7 +40,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       });
     }
 
-    if(interaction.data.name == 'dm'){
+    if(interaction.data.name == 'gen'){
       // https://discord.com/developers/docs/resources/user#create-dm
       let c = (await discord_api.post(`/users/@me/channels`,{
         recipient_id: interaction.member.user.id
@@ -48,7 +48,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       try{
         // https://discord.com/developers/docs/resources/channel#create-message
         let res = await discord_api.post(`/channels/${c.id}/messages`,{
-          content:'Yo! I got your slash command. I am not able to respond to DMs just slash commands.',
+          content:'This is a test message',
         })
         console.log(res.data)
       }catch(e){
