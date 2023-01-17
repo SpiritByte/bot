@@ -39,6 +39,17 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
         },
       });
     }
+	  
+    if (interaction.type === InteractionType.APPLICATION_COMMAND) {
+      console.log(interaction.data.name)
+      if(interaction.data.name == '8ball'){
+        return res.send({
+  	  type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+	  data: {
+	    content: `Test`,
+	 },
+      });
+    }
 
     if(interaction.data.name == 'gen'){
       // https://discord.com/developers/docs/resources/user#create-dm
@@ -48,7 +59,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       try{
         // https://discord.com/developers/docs/resources/channel#create-message
         let res = await discord_api.post(`/channels/${c.id}/messages`,{
-          content:'This is a test message',
+          content:'In development',
         })
         console.log(res.data)
       }catch(e){
@@ -73,12 +84,17 @@ app.get('/register_commands', async (req,res) =>{
   let slash_commands = [
     {
       "name": "yo",
-      "description": "replies with Yo!",
+      "description": "Replies with yo!",
       "options": []
     },
     {
       "name": "gen",
       "description": "Generates an alt account",
+      "options": []
+    },
+    {
+      "name": "8ball",
+      "description": "Rolls the 8ball",
       "options": []
     }
   ]
