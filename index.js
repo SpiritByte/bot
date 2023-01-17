@@ -77,8 +77,8 @@ app.get('/register_commands', async (req,res) =>{
       "options": []
     },
     {
-      "name": "dm",
-      "description": "sends user a DM",
+      "name": "gen",
+      "description": "Generates an alt account",
       "options": []
     }
   ]
