@@ -26,6 +26,9 @@ const discord_api = axios.create({
   }
 });
 
+
+
+
 app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
   const interaction = req.body;
 
@@ -39,19 +42,8 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
         },
       });
     }
-	  
-    if (interaction.type === InteractionType.APPLICATION_COMMAND) {
-      console.log(interaction.data.name)
-      if(interaction.data.name == '8ball'){
-        return res.send({
-  	  type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-	  data: {
-	    content: `Test`,
-	 },
-      });
-    }
 
-    if(interaction.data.name == 'gen'){
+    if(interaction.data.name == 'dm'){
       // https://discord.com/developers/docs/resources/user#create-dm
       let c = (await discord_api.post(`/users/@me/channels`,{
         recipient_id: interaction.member.user.id
@@ -59,7 +51,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       try{
         // https://discord.com/developers/docs/resources/channel#create-message
         let res = await discord_api.post(`/channels/${c.id}/messages`,{
-          content:'In development',
+          content:'This is a direct message',
         })
         console.log(res.data)
       }catch(e){
@@ -69,8 +61,8 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       return res.send({
         // https://discord.com/developers/docs/interactions/receiving-and-responding#responding-to-an-interaction
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-        data: {
-          content: `Generated successfully! Check your DMs!.`
+        data:{
+          content:`👍`
         }
       });
     }
@@ -84,17 +76,12 @@ app.get('/register_commands', async (req,res) =>{
   let slash_commands = [
     {
       "name": "yo",
-      "description": "Replies with yo!",
+      "description": "Replies with Yo!",
       "options": []
     },
     {
-      "name": "gen",
-      "description": "Generates an alt account",
-      "options": []
-    },
-    {
-      "name": "8ball",
-      "description": "Rolls the 8ball",
+      "name": "dm",
+      "description": "Sends the user a direct message",
       "options": []
     }
   ]
@@ -116,11 +103,10 @@ app.get('/register_commands', async (req,res) =>{
 
 
 app.get('/', async (req,res) =>{
-  return res.send('Follow documentation ')
+  return res.send('Follow Documentation ')
 })
 
 
 app.listen(8999, () => {
 
 })
-
