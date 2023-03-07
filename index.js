@@ -32,20 +32,19 @@ function main(sus) {
 		 return 
      	}
 	if (number < 0.5) {
-	    return ("**Heads Won!** https://tenor.com/view/heads-coinflip-flip-a-coin-coin-coins-gif-21479854");
+	    return ("https://tenor.com/view/coinflip-heads-gif-22311983");
 	} else {
-	    return ("**Tails Won!** https://tenor.com/view/coins-tails-coin-flip-a-coin-coinflip-gif-21479856");
+	    return ("https://tenor.com/view/coinflip-tails-gif-22311991");
 	}
 }
 
-// authenticates you with the API standard library
-const lib = require('lib')({token: TOKEN});
-
-lib.discord.users['@0.2.1'].me.status.update({
-  activity_name: `your mom lmfaooo`,
-  activity_type: 'WATCHING',
-  status: 'ONLINE'
-});
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
 
 app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
   const interaction = req.body;
@@ -56,7 +55,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          content: main(),
+          content: main() wait(5000) "**Heads Won!**",
         },
       });
     }
