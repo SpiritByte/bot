@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/korostelevm/starter-discord-bot.git"
+    "url": "git+https://github.com/spiritbyte/starter-discord-bot.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/korostelevm/starter-discord-bot/issues"
+    "url": "https://github.com/spiritbyte/starter-discord-bot/issues"
   },
-  "homepage": "https://github.com/korostelevm/starter-discord-bot#readme",
+  "homepage": "https://github.com/spiritbyte/starter-discord-bot#readme",
   "dependencies": {
     "axios": "^0.27.2",
     "body-parser": "^1.20.0",
