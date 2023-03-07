@@ -103,6 +103,11 @@ app.get('/register_commands', async (req,res) =>{
       "description": "Sends the user a direct message",
       "options": []
     }
+    {
+      "name": "blackjack",
+      "description": "Plays a game of blackjack!",
+      "options": []
+    }
   ]
   try
   {
