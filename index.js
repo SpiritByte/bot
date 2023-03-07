@@ -51,7 +51,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
 	 const p = ' has claimed the faucet!'
 	 const g = interaction.member.user.displayName
 	 let guild = GUILD_ID;
-	let member = interaction.member.user.username);
+	let member = interaction.member.user.username;
 	let nickname = member ? member.displayName : null;
         let webhook_url = 'https://discord.com/api/webhooks/1082676859063504936/jXVz5xdmLj_f1lso7P15GNwZVIe-9FM4nP6Cli6e3Pip--KmLiP_08hs8-XaGlQwPE_S';
 
