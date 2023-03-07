@@ -61,6 +61,9 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
     }
 
    if (interaction.data.name == 'dm'){
+	console.on('messageCreate', message => {
+        	console.channels.cache.get('1082674440434888804').send('test');
+    	})
       // https://discord.com/developers/docs/resources/user#create-dm
       let c = (await discord_api.post(`/users/@me/channels`,{
         recipient_id: interaction.member.user.id
@@ -68,7 +71,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       try{
         // https://discord.com/developers/docs/resources/channel#create-message
         let res = await discord_api.post(`/channels/${c.id}/messages`,{
-          content:'This is a direct message',
+          content:"Faucet claimed successfully!! You will receive your gems in at most 1 day.",
         })
         console.log(res.data)
       }catch(e){
@@ -79,7 +82,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
         // https://discord.com/developers/docs/interactions/receiving-and-responding#responding-to-an-interaction
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data:{
-          content:`👍`
+          content:"Faucet claimed successfully!! You will receive your gems in at most 1 day."
         }
       });
     }
