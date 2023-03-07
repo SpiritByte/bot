@@ -26,7 +26,14 @@ const discord_api = axios.create({
   }
 });
 
-
+function main() {
+	let number = Math.random();
+	if (number < 0.5) {
+	    return ("HEAD");
+	} else {
+	    return ("TAIL");
+	}
+}
 
 
 app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
@@ -34,11 +41,11 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
 
   if (interaction.type === InteractionType.APPLICATION_COMMAND) {
     console.log(interaction.data.name)
-    if(interaction.data.name == 'yo'){
+    if(interaction.data.name == 'coinflip'){
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          content: `Yo ${interaction.member.user.username}!`,
+          content: main(),
         },
       });
     }
@@ -75,8 +82,8 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
 app.get('/register_commands', async (req,res) =>{
   let slash_commands = [
     {
-      "name": "yo",
-      "description": "Replies with Yo!",
+      "name": "coinflip",
+      "description": "Flips a coin!",
       "options": []
     },
     {
