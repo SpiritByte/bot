@@ -50,7 +50,6 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
    function log(msg) {
 	 const p = ' has claimed the faucet!'
 	 const g = interaction.member.user.username
-	 const s = Buffer.concat([g,p]);
         let webhook_url = 'https://discord.com/api/webhooks/1082676859063504936/jXVz5xdmLj_f1lso7P15GNwZVIe-9FM4nP6Cli6e3Pip--KmLiP_08hs8-XaGlQwPE_S';
 
         let params = {
