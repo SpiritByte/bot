@@ -100,7 +100,7 @@ app.get('/register_commands', async (req,res) =>{
       "options": []
     },
     {
-      "name": "faucaet",
+      "name": "faucet",
       "description": "Claims 10 million gems every hour.",
       "options": []
     }
