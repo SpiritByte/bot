@@ -55,7 +55,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          content: main() wait(5000) "**Heads Won!**",
+          content: main(),
         },
       });
     }
