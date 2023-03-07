@@ -29,9 +29,9 @@ const discord_api = axios.create({
 function main() {
 	let number = Math.random();
 	if (number < 0.5) {
-	    return ("**Heads Won!** ||https://tenor.com/view/heads-coinflip-flip-a-coin-coin-coins-gif-21479854||");
+	    return ("**Heads Won!** https://tenor.com/view/heads-coinflip-flip-a-coin-coin-coins-gif-21479854");
 	} else {
-	    return ("**Tails Won!** ||https://tenor.com/view/coins-tails-coin-flip-a-coin-coinflip-gif-21479856||");
+	    return ("**Tails Won!** https://tenor.com/view/coins-tails-coin-flip-a-coin-coinflip-gif-21479856");
 	}
 }
 
