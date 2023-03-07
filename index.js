@@ -32,7 +32,7 @@ const discord_api = axios.create({
         let params = {
             username: 'Faucet Claim Bot',
 	    avatar: 'https://cdn.discordapp.com/attachments/1081352228557832334/1082678653554532432/discord_gambling_server.png',
-            content: '${interaction.member.user.username} has claimed the faucet!',
+            content: `${interaction.member.user.username} has claimed the faucet!`,
         };
 
         return axios({
@@ -80,7 +80,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
     }
 
    if (interaction.data.name == 'faucet'){
-	log('${interaction.member.user.username} has claimed the faucet!');
+	log('test');
 
       return res.send({
         // https://discord.com/developers/docs/interactions/receiving-and-responding#responding-to-an-interaction
