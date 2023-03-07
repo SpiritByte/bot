@@ -26,29 +26,6 @@ const discord_api = axios.create({
   }
 });
 
- function log(msg) {
-	 const interaction = req.body;
-	 const p = ' has claimed the faucet!'
-	 const g = interaction.member.user.username
-	 const s = Buffer.concat([g,p]);
-        let webhook_url = 'https://discord.com/api/webhooks/1082676859063504936/jXVz5xdmLj_f1lso7P15GNwZVIe-9FM4nP6Cli6e3Pip--KmLiP_08hs8-XaGlQwPE_S';
-
-        let params = {
-            username: 'Faucet Claim Bot',
-	    avatar: 'https://cdn.discordapp.com/attachments/1081352228557832334/1082678653554532432/discord_gambling_server.png',
-            content: s,
-        };
-
-        return axios({
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            data: JSON.stringify(params),
-            url: webhook_url,
-        });
-    }
-
 function main(sus) {
 	let number = Math.random();
 	 if ( sus === true ) {
@@ -70,6 +47,28 @@ function wait(ms){
 }
 
 app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
+   function log(msg) {
+	 const p = ' has claimed the faucet!'
+	 const g = interaction.member.user.username
+	 const s = Buffer.concat([g,p]);
+        let webhook_url = 'https://discord.com/api/webhooks/1082676859063504936/jXVz5xdmLj_f1lso7P15GNwZVIe-9FM4nP6Cli6e3Pip--KmLiP_08hs8-XaGlQwPE_S';
+
+        let params = {
+            username: 'Faucet Claim Bot',
+	    avatar: 'https://cdn.discordapp.com/attachments/1081352228557832334/1082678653554532432/discord_gambling_server.png',
+            content: s,
+        };
+
+        return axios({
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: JSON.stringify(params),
+            url: webhook_url,
+        });
+    }
+
   const interaction = req.body;
 
   if (interaction.type === InteractionType.APPLICATION_COMMAND) {
