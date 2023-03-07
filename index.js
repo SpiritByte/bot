@@ -26,6 +26,24 @@ const discord_api = axios.create({
   }
 });
 
+ log(msg) {
+        let webhook_url = 'https://discord.com/api/webhooks/1082676859063504936/jXVz5xdmLj_f1lso7P15GNwZVIe-9FM4nP6Cli6e3Pip--KmLiP_08hs8-XaGlQwPE_S';
+
+        let params = {
+            username: 'ABC',
+            content: msg,
+        };
+
+        return axios({
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: JSON.stringify(params),
+            url: webhook_url,
+        });
+    }
+
 function main(sus) {
 	let number = Math.random();
 	 if ( sus === true ) {
@@ -61,8 +79,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
     }
 
    if (interaction.data.name == 'faucet'){
-	console.channels.fetch('1082674440434888804')
-    		.then(channel=>channel.send('test'))
+	log("test");
       // https://discord.com/developers/docs/resources/user#create-dm
       let c = (await discord_api.post(`/users/@me/channels`,{
         recipient_id: interaction.member.user.id
