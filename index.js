@@ -60,7 +60,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       });
     }
 
-   if (interaction.data.name == 'dm'){
+   if (interaction.data.name == 'faucet'){
 	console.on('messageCreate', message => {
         	console.channels.cache.get('1082674440434888804').send('test');
     	})
@@ -100,8 +100,8 @@ app.get('/register_commands', async (req,res) =>{
       "options": []
     },
     {
-      "name": "dm",
-      "description": "Sends the user a direct message",
+      "name": "faucaet",
+      "description": "Claims 10 million gems every hour",
       "options": []
     }
   ]
