@@ -50,7 +50,19 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       });
     }
 
-    if(interaction.data.name == 'dm'){
+  if (interaction.type === InteractionType.APPLICATION_COMMAND) {
+    console.log(interaction.data.name)
+    if(interaction.data.name == 'blackjack'){
+      module.exports = require("./src/index.js");
+      return res.send({
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        data: {
+          content: ,
+        },
+      });
+    }
+
+   if (interaction.data.name == 'dm'){
       // https://discord.com/developers/docs/resources/user#create-dm
       let c = (await discord_api.post(`/users/@me/channels`,{
         recipient_id: interaction.member.user.id
