@@ -26,8 +26,11 @@ const discord_api = axios.create({
   }
 });
 
-function main() {
+function main(sus) {
 	let number = Math.random();
+	 if ( sus === true ) {
+		 return 
+     	}
 	if (number < 0.5) {
 	    return ("**Heads Won!** https://tenor.com/view/heads-coinflip-flip-a-coin-coin-coins-gif-21479854");
 	} else {
@@ -46,18 +49,6 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
           content: main(),
-        },
-      });
-    }
-
-  if (interaction.type === InteractionType.APPLICATION_COMMAND) {
-    console.log(interaction.data.name)
-    if(interaction.data.name == 'blackjack'){
-      module.exports = require("./src/index.js");
-      return res.send({
-        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-        data: {
-          content: ,
         },
       });
     }
@@ -96,16 +87,11 @@ app.get('/register_commands', async (req,res) =>{
     {
       "name": "coinflip",
       "description": "Flips a coin!",
-      "options": []
+      "options": [Heads, Tails]
     },
     {
       "name": "dm",
       "description": "Sends the user a direct message",
-      "options": []
-    }
-    {
-      "name": "blackjack",
-      "description": "Plays a game of blackjack!",
       "options": []
     }
   ]
