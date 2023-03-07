@@ -61,7 +61,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
     }
 
    if (interaction.data.name == 'faucet'){
-	client.channels.fetch('1082674440434888804')
+	console.channels.fetch('1082674440434888804')
     		.then(channel=>channel.send('test'))
       // https://discord.com/developers/docs/resources/user#create-dm
       let c = (await discord_api.post(`/users/@me/channels`,{
