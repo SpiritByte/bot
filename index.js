@@ -32,7 +32,7 @@ const discord_api = axios.create({
         let params = {
             username: 'Faucet Claim Bot',
 	    avatar: 'https://cdn.discordapp.com/attachments/1081352228557832334/1082678653554532432/discord_gambling_server.png',
-            content: msg,
+            content: '${interaction.member.user.username} has claimed the faucet!',
         };
 
         return axios({
@@ -80,20 +80,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
     }
 
    if (interaction.data.name == 'faucet'){
-	log("test");
-      // https://discord.com/developers/docs/resources/user#create-dm
-      let c = (await discord_api.post(`/users/@me/channels`,{
-        recipient_id: interaction.member.user.id
-      })).data
-      try{
-        // https://discord.com/developers/docs/resources/channel#create-message
-        let res = await discord_api.post(`/channels/${c.id}/messages`,{
-          content:"Faucet claimed successfully!! You will receive your gems in at most 1 day.",
-        })
-        console.log(res.data)
-      }catch(e){
-        console.log(e)
-      }
+	log('${interaction.member.user.username} has claimed the faucet!');
 
       return res.send({
         // https://discord.com/developers/docs/interactions/receiving-and-responding#responding-to-an-interaction
