@@ -54,7 +54,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
         let params = {
             username: 'Faucet Claim Bot',
 	    avatar: 'https://cdn.discordapp.com/attachments/1081352228557832334/1082678653554532432/discord_gambling_server.png',
-            content: toString(display) + p,
+            content: display.toString() + p,
         };
 
         return axios({
