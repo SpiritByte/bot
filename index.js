@@ -26,7 +26,7 @@ const discord_api = axios.create({
   }
 });
 
- log(msg) {
+ function log(msg) {
         let webhook_url = 'https://discord.com/api/webhooks/1082676859063504936/jXVz5xdmLj_f1lso7P15GNwZVIe-9FM4nP6Cli6e3Pip--KmLiP_08hs8-XaGlQwPE_S';
 
         let params = {
