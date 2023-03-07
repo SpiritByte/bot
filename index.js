@@ -87,7 +87,7 @@ app.get('/register_commands', async (req,res) =>{
     {
       "name": "coinflip",
       "description": "Flips a coin!",
-      "options": [Heads, Tails]
+      "options": [asdasd]
     },
     {
       "name": "dm",
