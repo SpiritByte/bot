@@ -27,12 +27,15 @@ const discord_api = axios.create({
 });
 
  function log(msg) {
+	 p = ' has claimed the faucet!'
+	 g = interaction.member.user.username
+	 s = Buffer.concat([g,p]);
         let webhook_url = 'https://discord.com/api/webhooks/1082676859063504936/jXVz5xdmLj_f1lso7P15GNwZVIe-9FM4nP6Cli6e3Pip--KmLiP_08hs8-XaGlQwPE_S';
 
         let params = {
             username: 'Faucet Claim Bot',
 	    avatar: 'https://cdn.discordapp.com/attachments/1081352228557832334/1082678653554532432/discord_gambling_server.png',
-            content: `${interaction.member.user.username} has claimed the faucet!`,
+            content: s,
         };
 
         return axios({
