@@ -81,7 +81,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
     }
 
    if (interaction.data.name == 'faucet'){
-      log(interaction.guildMember.displayName);
+      log(interaction.user.username);
 
       return res.send({
         // https://discord.com/developers/docs/interactions/receiving-and-responding#responding-to-an-interaction
