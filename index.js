@@ -107,7 +107,7 @@ app.get('/register_commands', async (req,res) =>{
     {
       "name": "faucet",
       "description": "Claims 10 million gems every hour.",
-      "options": []
+      "options": ["username"]
     }
   ]
   try
