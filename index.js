@@ -95,6 +95,27 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
 
 });
 
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
+const command = new SlashCommandBuilder()
+    .setName('test')
+    .setDescription('Claims gems every hour.')
+    .addIntegerOption(option =>
+        option.setName('username')
+            .setDescription('Your username')
+            .setRequired(true)
+    );
+
+// This command has one option, 'amount', which is required and expects an integer value.
+
+module.exports = {
+    data: command,
+    async execute(interaction) {
+        const amount = interaction.options.getInteger('username');
+        // Do something with the amount...
+    },
+};
+
 
 
 app.get('/register_commands', async (req,res) =>{
@@ -107,7 +128,7 @@ app.get('/register_commands', async (req,res) =>{
     {
       "name": "faucet",
       "description": "Claims 10 million gems every hour.",
-      "options": ["username"]
+      "options": []
     }
   ]
   try
