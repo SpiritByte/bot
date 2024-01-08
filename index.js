@@ -37,9 +37,17 @@ function coinflip() {
 }
 
 function privateservers() {
-	const gameLink = `https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator?privateServerLinkCode=${GAME_ID_1}`;
+      const chosenGame = interaction.data.options[0].value;
 
-	return `Here's the private server link: [Bee Swarm Simulator]( ${gameLink} )`
+      let privateServerLink;
+      
+      if (chosenGame === 'bss') {
+        privateServerLink = `https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator?privateServerLinkCode=${GAME_ID_1}`;
+      } else if (chosenGame === 'other') {
+        privateServerLink = `what does bbb stand for 😋😚🙄😐🤩`;
+      }
+
+      return privateServerLink;
 }
 
 function wait(ms){
