@@ -109,20 +109,20 @@ app.get('/register_commands', async (req,res) =>{
 	    "description": "Lists all private servers that Alex has found 😅",
 	    "options": [
 	      {
-	        "name": "category",
-	        "description": "Filter by category",
+	        "name": "game",
+	        "description": "Filter by game.",
 	        "type": 3,
-	        "required": false,
+	        "required": true,
 	        "choices": [
 	          {
-	            "name": "Category 1",
-	            "value": "category1"
+	            "name": "Bee Swarm Simulator",
+	            "value": "bss"
 	          },
 	          {
-	            "name": "Category 2",
-	            "value": "category2"
+	            "name": "Other",
+	            "value": "other"
 	          }
-	          // Add more choices as needed, separated by commas
+
 	        ]
 	      }
 	    ]
