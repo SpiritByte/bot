@@ -113,15 +113,16 @@ app.get('/register_commands', async (req,res) =>{
           "description": "Filters which game to send.",
           "type": 3, // Type 3 represents STRING, you can change this based on your needs
           "required": true // Set to true if this option is mandatory
-	  "choices": [
-          {
-            "name": "Bee Swarm Simulator",
-            "value": "category1"
-          },
-          {
-            "name": "Other",
-            "value": "category2"
-          },
+          "choices": [
+                {
+                    "name": "Bee Swarm Simulator",
+                    "value": "BSS"
+                },
+                {
+                    "name": "Other",
+                    "value": "other"
+                }
+            ]
         ]
       }
     ]
