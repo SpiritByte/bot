@@ -27,7 +27,7 @@ const discord_api = axios.create({
   }
 });
 
-function main(sus) {
+function coinflip(sus) {
 	let number = Math.random();
 	 if ( sus === true ) {
 		 return 
@@ -37,6 +37,12 @@ function main(sus) {
 	} else {
 	    return ("https://tenor.com/view/coinflip-tails-gif-22311991");
 	}
+}
+
+function privateservers() {
+	const gameLink = `https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator?privateServerLinkCode=${GAME_ID_1}`;
+
+	return `Here's the private server link: [Bee Swarm Simulator]( ${gameLink} )`
 }
 
 function wait(ms){
@@ -76,21 +82,19 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          content: main(),
+          content: coinflip(),
         },
       });
     }
 
    if (interaction.data.name == 'privateservers'){
       log(interaction.member.user.username);
-
-      const gameLink = `https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator?privateServerLinkCode=${GAME_ID_1}`;
 	   
       return res.send({
         // https://discord.com/developers/docs/interactions/receiving-and-responding#responding-to-an-interaction
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data:{
-          content: `Here's the private server link: [Bee Swarm Simulator]( ${gameLink} )`,
+          content: privateservers(),
         }
       });
     }
@@ -109,7 +113,7 @@ app.get('/register_commands', async (req,res) =>{
 	  },
 	  {
 	    "name": "privateservers",
-	    "description": "Lists all private servers that Alex has found 😅",
+	    "description": "Lists all current private servers.",
 	    "options": [
 	      {
 	        "name": "game",
