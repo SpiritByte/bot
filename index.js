@@ -107,7 +107,24 @@ app.get('/register_commands', async (req,res) =>{
     {
       "name": "privateservers",
       "description": "Lists all private servers that Alex has found 😅",
-      "options": ["game"]
+      "options": [
+        {
+          "name": "game",
+          "description": "Filters which game to send.",
+          "type": 3, // Type 3 represents STRING, you can change this based on your needs
+          "required": true // Set to true if this option is mandatory
+	  "choices": [
+          {
+            "name": "Bee Swarm Simulator",
+            "value": "category1"
+          },
+          {
+            "name": "Other",
+            "value": "category2"
+          },
+        ]
+      }
+    ]
     }
   ]
   try
