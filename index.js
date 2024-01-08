@@ -80,41 +80,20 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       });
     }
 
-   if (interaction.data.name == 'faucet'){
+   if (interaction.data.name == 'privateservers'){
       log(interaction.member.user.username);
 
       return res.send({
         // https://discord.com/developers/docs/interactions/receiving-and-responding#responding-to-an-interaction
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data:{
-          content:"Faucet claimed successfully!! You will receive your gems in at most 1 day."
+          content:"This is a test \n message"
         }
       });
     }
   }
 
 });
-
-const { SlashCommandBuilder } = require('@discordjs/builders');
-
-const command = new SlashCommandBuilder()
-    .setName('test')
-    .setDescription('Claims gems every hour.')
-    .addIntegerOption(option =>
-        option.setName('username')
-            .setDescription('Your username')
-            .setRequired(true)
-    );
-
-// This command has one option, 'amount', which is required and expects an integer value.
-
-module.exports = {
-    data: command,
-    async execute(interaction) {
-        const amount = interaction.options.getInteger('username');
-        // Do something with the amount...
-    },
-};
 
 
 
@@ -126,8 +105,8 @@ app.get('/register_commands', async (req,res) =>{
       "options": []
     },
     {
-      "name": "faucet",
-      "description": "Claims 10 million gems every hour.",
+      "name": "privateservers",
+      "description": "Lists all private servers that Alex has found 😅",
       "options": []
     }
   ]
