@@ -5,7 +5,7 @@ const APPLICATION_ID = process.env.APPLICATION_ID
 const TOKEN = process.env.TOKEN 
 const PUBLIC_KEY = process.env.PUBLIC_KEY || 'not set'
 const GUILD_ID = process.env.GUILD_ID 
-const GAME_ID_1 = process.env.GAME_ID_1
+const GAME_ID_1 = (process.env.GAME_ID_1).split(" ")
 
 
 const axios = require('axios')
@@ -39,15 +39,22 @@ function coinflip() {
 function privateservers(interaction) {
       const chosenGame = interaction.data.options[0].value;
 
-      let privateServerLink;
-      
-      if (chosenGame === 'bss') {
-        privateServerLink = `https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator?privateServerLinkCode=${GAME_ID_1}`;
-      } else if (chosenGame === 'other') {
-        privateServerLink = `what does bbb stand for 😋😚🙄😐🤩`;
-      }
+  let privateServerLinks = [];
 
-      return privateServerLink;
+  if (chosenGame === 'bss') {
+    // Assuming GAME_ID_1 is the base ID for Bee Swarm Simulator
+    for (const code of serverCodes) {
+      privateServerLinks.push(`https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator?privateServerLinkCode=${code}`);
+    }
+  } else if (chosenGame === 'other') {
+    // Handle other game option, if needed
+    for (const code of serverCodes) {
+      // Generate links for another game
+      privateServerLinks.push(`https://www.example.com/otherGamePrivateServerLink?privateServerLinkCode=${code}`);
+    }
+  }
+
+  return privateServerLinks;
 }
 
 function wait(ms){
