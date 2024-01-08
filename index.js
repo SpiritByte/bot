@@ -98,36 +98,37 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
 
 
 app.get('/register_commands', async (req,res) =>{
-  let slash_commands = [
-    {
-      "name": "coinflip",
-      "description": "Flips a coin!",
-      "options": []
-    },
-    {
-      "name": "privateservers",
-      "description": "Lists all private servers that Alex has found 😅",
-      "options": [
-        {
-          "name": "game",
-          "description": "Filters which game to send.",
-          "type": 1, 
-          "required": true 
-          "choices": [
-                {
-                    "name": "Bee Swarm Simulator",
-                    "value": "BSS"
-                },
-                {
-                    "name": "Other",
-                    "value": "other"
-                }
-            ]
-        ]
-      }
-    ]
-    }
-  ]
+	let slash_commands = [
+	  {
+	    "name": "coinflip",
+	    "description": "Flips a coin!",
+	    "options": []
+	  },
+	  {
+	    "name": "privateservers",
+	    "description": "Lists all private servers that Alex has found 😅",
+	    "options": [
+	      {
+	        "name": "category",
+	        "description": "Filter by category",
+	        "type": 3,
+	        "required": false,
+	        "choices": [
+	          {
+	            "name": "Category 1",
+	            "value": "category1"
+	          },
+	          {
+	            "name": "Category 2",
+	            "value": "category2"
+	          }
+	          // Add more choices as needed, separated by commas
+	        ]
+	      }
+	    ]
+	  }
+	]
+
   try
   {
     // api docs - https://discord.com/developers/docs/interactions/application-commands#create-global-application-command
