@@ -27,11 +27,8 @@ const discord_api = axios.create({
   }
 });
 
-function coinflip(sus) {
+function coinflip() {
 	let number = Math.random();
-	 if ( sus === true ) {
-		 return 
-     	}
 	if (number < 0.5) {
 	    return ("https://tenor.com/view/coinflip-heads-gif-22311983");
 	} else {
