@@ -5,6 +5,7 @@ const APPLICATION_ID = process.env.APPLICATION_ID
 const TOKEN = process.env.TOKEN 
 const PUBLIC_KEY = process.env.PUBLIC_KEY || 'not set'
 const GUILD_ID = process.env.GUILD_ID 
+const GAME_ID_1 = process.env.GAME_ID_1
 
 
 const axios = require('axios')
@@ -83,11 +84,13 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
    if (interaction.data.name == 'privateservers'){
       log(interaction.member.user.username);
 
+      const gameLink = `https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator?privateServerLinkCode=${GAME_ID_1}`;
+	   
       return res.send({
         // https://discord.com/developers/docs/interactions/receiving-and-responding#responding-to-an-interaction
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data:{
-          content:"This is a test \n message"
+          content: `Here's the private server link: [Bee Swarm Simulator]( ${gameLink} )`,
         }
       });
     }
