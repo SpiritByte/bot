@@ -107,7 +107,7 @@ app.get('/register_commands', async (req,res) =>{
     {
       "name": "privateservers",
       "description": "Lists all private servers that Alex has found 😅",
-      "options": []
+      "options": ["game"]
     }
   ]
   try
