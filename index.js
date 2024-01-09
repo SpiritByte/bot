@@ -106,6 +106,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data:{
           content: privateservers(interaction),
+	  flags: 1 << 2
     	}
       });
     }
