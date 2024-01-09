@@ -1,4 +1,4 @@
-
+   
 // const { clientId, guildId, token, publicKey } = require('./config.json');
 require('dotenv').config()
 const APPLICATION_ID = process.env.APPLICATION_ID 
@@ -66,12 +66,12 @@ function wait(ms){
 
 app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
    function log(display) {
-	const p = ' has claimed the faucet!'
-        let webhook_url = 'https://discord.com/api/webhooks/1082676859063504936/jXVz5xdmLj_f1lso7P15GNwZVIe-9FM4nP6Cli6e3Pip--KmLiP_08hs8-XaGlQwPE_S';
+	const p = ' has retrieved private servers!'
+        let webhook_url = 'https://discord.com/api/webhooks/1194124324530028666/NHCxcpt-sfsg4UV5dPYE0VjV_BDkPNcNYB4YoB_rmYQ4M34j4UrBUVJh6ICdXWMBQDqP';
 
         let params = {
-            username: 'Faucet Claim Bot',
-	    avatar: 'https://cdn.discordapp.com/attachments/1081352228557832334/1082678653554532432/discord_gambling_server.png',
+            username: 'Log Bot',
+	    avatar: 'https://cdn.discordapp.com/attachments/1051999227913437195/1194124070833377290/4491-whyyyyyyyyy.png',
             content: display.toString() + p,
         };
 
@@ -85,10 +85,13 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
         });
     }
 
+	
   const interaction = req.body;
-
   if (interaction.type === InteractionType.APPLICATION_COMMAND) {
     console.log(interaction.data.name)
+
+
+	  
     if(interaction.data.name == 'coinflip'){
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
@@ -98,6 +101,8 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
       });
     }
 
+
+	  
    if (interaction.data.name == 'privateservers'){
       log(interaction.member.user.username);
 	   
