@@ -5,8 +5,21 @@ const APPLICATION_ID = process.env.APPLICATION_ID
 const TOKEN = process.env.TOKEN 
 const PUBLIC_KEY = process.env.PUBLIC_KEY || 'not set'
 const GUILD_ID = process.env.GUILD_ID 
-const GAME_ID_BSS = (process.env.GAME_ID_BSS).split("|")
-const GAME_ID_OTHER = (process.env.GAME_ID_OTHER).split("|")
+
+let GAME_ID_BSS;
+try {
+  GAME_ID_BSS = process.env.GAME_ID_BSS.split("|");
+} catch (error) {
+  GAME_ID_BSS = [];
+}
+
+let GAME_ID_OTHER;
+try {
+  GAME_ID_OTHER = process.env.GAME_ID_OTHER.split("|");
+} catch (error) {
+  GAME_ID_OTHER = [];
+}
+
 
 const axios = require('axios')
 const express = require('express');
