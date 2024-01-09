@@ -5,7 +5,9 @@ const APPLICATION_ID = process.env.APPLICATION_ID
 const TOKEN = process.env.TOKEN 
 const PUBLIC_KEY = process.env.PUBLIC_KEY || 'not set'
 const GUILD_ID = process.env.GUILD_ID 
-const GAME_ID_1 = (process.env.GAME_ID_1).split("A")
+const GAME_ID_BSS = (process.env.GAME_ID_BSS).split("A")
+const GAME_ID_OTHER = (process.env.GAME_ID_BSS).split("A")
+
 
 console.log((process.env.GAME_ID_1).split("A"))
 
@@ -44,12 +46,12 @@ function privateservers(interaction) {
     let privateServerLinks = [];
 
     if (chosenGame === 'bss') {
-        for (const code of GAME_ID_1) {
+        for (const code of GAME_ID_BSS) {
             privateServerLinks.push(`[Private Server](https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator?privateServerLinkCode=${code})`);
         }
     } else if (chosenGame === 'other') {
         // Replace this block with logic for another game option
-        for (const code of GAME_ID_1) {
+        for (const code of GAME_ID_OTHER) {
             privateServerLinks.push(`[Private Server](https://www.example.com/otherGamePrivateServerLink?privateServerLinkCode=${code})`);
         }
     }
