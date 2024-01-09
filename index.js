@@ -7,6 +7,8 @@ const PUBLIC_KEY = process.env.PUBLIC_KEY || 'not set'
 const GUILD_ID = process.env.GUILD_ID 
 const GAME_ID_1 = (process.env.GAME_ID_1).split("A")
 
+console.log((process.env.GAME_ID_1).split("A"))
+
 
 const axios = require('axios')
 const express = require('express');
