@@ -106,12 +106,7 @@ app.post('/interactions', verifyKeyMiddleware(PUBLIC_KEY), async (req, res) => {
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data:{
           content: privateservers(interaction),
-	   allowed_mentions: {
-            parse: ["users", "roles"], // Enable user and role mentions if needed
-            replied_user: false // Disable mentioning the user being replied to
-        },
-        flags: 1 << 3 // Set the flag to suppress link previews in the message
-    }
+    	}
       });
     }
   }
