@@ -47,7 +47,7 @@ function privateservers(interaction) {
         }
     } else if (chosenGame === 'other') {
         for (let i = 0; i < GAME_ID_OTHER.length; i++) {
-            privateServerLinks.push(`[Private Server #${i + 1}](https://www.example.com/otherGamePrivateServerLink?privateServerLinkCode=${GAME_ID_OTHER[i]})`);
+            privateServerLinks.push(`[Private Server #${i + 1}](https://www.roblox.com/${GAME_ID_OTHER[i]})`);
         }
     }
 
