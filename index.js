@@ -46,17 +46,19 @@ function privateservers(interaction) {
     let privateServerLinks = [];
 
     if (chosenGame === 'bss') {
-        for (let i = 0; i < GAME_ID_BSS.length; i++) {
-            privateServerLinks.push(`[${i + 1}](https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator?privateServerLinkCode=${GAME_ID_BSS[i]})`);
+        for (const code of GAME_ID_BSS) {
+            privateServerLinks.push(`[Private Server](https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator?privateServerLinkCode=${code})`);
         }
     } else if (chosenGame === 'other') {
-        for (let i = 0; i < GAME_ID_OTHER.length; i++) {
-            privateServerLinks.push(`[${i + 1}](https://www.example.com/otherGamePrivateServerLink?privateServerLinkCode=${GAME_ID_OTHER[i]})`);
+        // Replace this block with logic for another game option
+        for (const code of GAME_ID_OTHER) {
+            privateServerLinks.push(`[Private Server](https://www.example.com/otherGamePrivateServerLink?privateServerLinkCode=${code})`);
         }
     }
 
-    return privateServerLinks.join('\n'); 
+    return privateServerLinks.join('\n'); // Combine the links into a single string separated by newlines
 }
+
 
 function wait(ms){
    var start = new Date().getTime();
